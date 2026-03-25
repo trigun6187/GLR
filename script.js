@@ -48,11 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const contentData = await response.json();
             renderContent(contentData);
-            // Try to render changelog from content.json if it exists, otherwise fallback
-            renderChangelog(contentData.changelog);
+            // Try to render changelog from content.json if it exists
+            if (contentData.changelog && contentData.changelog.length > 0) {
+                renderChangelog(contentData.changelog);
+            } else {
+                // If content.json doesn't have changelog or it's empty, use fallback
+                renderChangelog();
+            }
         } catch (error) {
             console.error("Error loading content:", error);
-            // Render fallback changelog if content fails to load or doesn't contain changelog data
+            // Render fallback changelog if content fails to load
             renderChangelog();
         }
     }
@@ -147,11 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Changelog Rendering ---
     function renderChangelog(entries) {
         const changelogContentDiv = document.getElementById('changelog-content');
-        if (!changelogContentDiv) return;
+        if (!changelogContentDiv) return; // Exit if the element doesn't exist
         changelogContentDiv.innerHTML = '';
 
-        // Use provided entries, or fallback to hardcoded ones
-        // Updated hardcoded entries to reflect latest version and fixes
+        // Use provided entries if they exist and are not empty, otherwise fallback to hardcoded ones
         const changelogData = entries && entries.length > 0 ? entries : [
             {
                 version: "1.1.0",
@@ -173,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             }
         ];
+
+        if (changelogData.length === 0) {
+             changelogContentDiv.innerHTML = "<p>No changelog entries found.</p>";
+             return;
+        }
 
         changelogData.forEach(entry => {
             const entryDiv = document.createElement('div');
