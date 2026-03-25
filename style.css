@@ -113,14 +113,19 @@ header {
     letter-spacing: 1px;
 }
 
-.site-title #version-number {
-    font-size: 0.8rem;
-    font-family: var(--font-main);
-    color: var(--text-dark); /* Ensure text color is visible */
-    text-shadow: none;
+/* --- Version Number Visibility --- */
+#version-number {
+    display: inline-block; /* Ensures it respects text flow */
+    font-size: 0.8em; /* Slightly smaller */
+    color: var(--text-dark); /* Visible color */
     margin-left: 10px;
     vertical-align: middle;
-    display: inline-block; /* Ensures it behaves correctly with text */
+    opacity: 0.8; /* Subtle appearance */
+    transition: opacity 0.3s ease;
+}
+#version-number:hover {
+    opacity: 1;
+    color: var(--primary-color); /* Slightly brighter on hover */
 }
 
 nav ul {
@@ -461,6 +466,11 @@ footer {
     margin-left: 10px;
     vertical-align: middle;
     opacity: 0.8; /* Subtle appearance */
+    transition: opacity 0.3s ease;
+}
+#version-number:hover {
+    opacity: 1;
+    color: var(--primary-color); /* Slightly brighter on hover */
 }
 
 

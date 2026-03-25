@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Versioning ---
-    const currentVersion = "1.0.0"; // Initial version for Ghost Legacy Reloaded
+    const currentVersion = "1.1.0"; // Updated version number
     const versionNumberSpan = document.getElementById('version-number');
     if (versionNumberSpan) {
         versionNumberSpan.textContent = `(v${currentVersion})`;
@@ -48,16 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const contentData = await response.json();
             renderContent(contentData);
-            // Only try to render changelog from content.json if it exists
-            if (contentData.changelog) {
-                renderChangelog(contentData.changelog);
-            } else {
-                renderChangelog(); // Fallback to hardcoded entries
-            }
+            // Try to render changelog from content.json if it exists, otherwise fallback
+            renderChangelog(contentData.changelog);
         } catch (error) {
             console.error("Error loading content:", error);
-            // Display error message on page if needed
-            // Also, render fallback changelog if content fails to load
+            // Render fallback changelog if content fails to load or doesn't contain changelog data
             renderChangelog();
         }
     }
@@ -150,17 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Changelog Rendering ---
-    // Modified to use hardcoded entries as fallback if content.json doesn't provide them
     function renderChangelog(entries) {
         const changelogContentDiv = document.getElementById('changelog-content');
         if (!changelogContentDiv) return;
         changelogContentDiv.innerHTML = '';
 
         // Use provided entries, or fallback to hardcoded ones
+        // Updated hardcoded entries to reflect latest version and fixes
         const changelogData = entries && entries.length > 0 ? entries : [
             {
                 version: "1.1.0",
-                date: "2024-03-27", // Updated date for this change
+                date: "2024-03-27",
                 changes: [
                     "Fixed version number display in header.",
                     "Ensured changelog is visible and uses fallback data.",
