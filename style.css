@@ -14,6 +14,8 @@
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     --interactive-shadow: 0 8px 25px var(--secondary-color);
     --card-border-glow: 1px solid var(--primary-color);
+    --section-background-even: var(--background-medium); /* More specific var */
+    --section-background-odd: var(--background-dark);  /* More specific var */
 }
 
 body {
@@ -40,6 +42,8 @@ body.theme-light {
     --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
     --interactive-shadow: 0 4px 15px rgba(0,0,0,0.2);
     --card-border-glow: 1px solid var(--primary-color);
+    --section-background-even: var(--background-medium);
+    --section-background-odd: var(--background-dark);
 }
 
 .container {
@@ -80,6 +84,7 @@ p {
 img {
     max-width: 100%;
     height: auto;
+    display: block; /* Prevents extra space below images */
 }
 
 /* --- Header --- */
@@ -193,10 +198,19 @@ section {
     padding: 4rem 0;
     position: relative;
     overflow: hidden; /* Ensures background effects stay within bounds */
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1); /* Subtle futuristic separator */
 }
 
-section:nth-of-type(even) { /* Alternate background for sections */
-    background-color: var(--background-medium);
+section:last-of-type { /* Remove border from last section */
+    border-bottom: none;
+}
+
+/* Use the defined vars for alternating backgrounds */
+section:nth-of-type(odd) {
+    background-color: var(--section-background-odd);
+}
+section:nth-of-type(even) {
+    background-color: var(--section-background-even);
 }
 
 /* Hero Section */
@@ -206,22 +220,21 @@ section:nth-of-type(even) { /* Alternate background for sections */
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Placeholder background: Updated path to reflect new structure */
     background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url('assets/img/hero-bg.png');
     background-size: cover;
     background-position: center;
     position: relative;
     color: #fff;
     overflow: hidden; /* Clip particle effects */
+    border-bottom: none; /* No separator for hero */
 }
 
-.hero-background { /* Futuristic visual element */
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Subtle futuristic pattern/gradient */
     background: radial-gradient(ellipse at center, rgba(40, 40, 40, 0) 0%, rgba(10, 10, 10, 1) 70%);
     z-index: 1;
 }
@@ -229,6 +242,8 @@ section:nth-of-type(even) { /* Alternate background for sections */
 .hero-content {
     position: relative;
     z-index: 2;
+    max-width: 800px; /* Limit width for readability */
+    padding: 0 1rem;
 }
 
 .hero-content h2 {
@@ -255,7 +270,7 @@ section:nth-of-type(even) { /* Alternate background for sections */
     text-transform: uppercase;
     box-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--secondary-color);
     transition: all 0.3s ease;
-    border: 2px solid var(--primary-color); /* Futuristic border */
+    border: 2px solid var(--primary-color);
 }
 
 .cta-button:hover {
@@ -263,23 +278,18 @@ section:nth-of-type(even) { /* Alternate background for sections */
     color: #fff !important;
     box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--secondary-color), 0 0 10px var(--accent-color);
     transform: translateY(-3px);
-    border-color: var(--accent-color); /* Glowing border on hover */
+    border-color: var(--accent-color);
 }
 
 /* Content Sections */
 .content-section {
-    background-color: var(--background-medium);
-    padding: 4rem 0;
-}
-
-.content-section:nth-of-type(even) {
-    background-color: var(--background-dark);
+    padding: 4rem 0; /* Already defined above, but reinforcing */
 }
 
 .content-section h2 {
     text-align: center;
     margin-bottom: 3rem;
-    text-transform: uppercase; /* Futuristic style */
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
@@ -291,17 +301,17 @@ section:nth-of-type(even) { /* Alternate background for sections */
 
 .content-card {
     background-color: var(--background-light);
-    border: var(--card-border-glow); /* Use glow border */
+    border: var(--card-border-glow);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    position: relative; /* For potential pseudo-elements */
+    position: relative;
 }
 
-.content-card::before { /* Subtle futuristic element */
+.content-card::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -351,7 +361,7 @@ section:nth-of-type(even) { /* Alternate background for sections */
     margin-top: auto;
     font-weight: bold;
     color: var(--accent-color);
-    text-shadow: 0 0 5px var(--accent-color); /* Glow on links */
+    text-shadow: 0 0 5px var(--accent-color);
 }
 
 .content-card a.read-more:hover, .content-card a:hover {
@@ -446,8 +456,9 @@ footer {
 @media (max-width: 992px) {
     h1 { font-size: 2.8rem; }
     h2 { font-size: 2.2rem; margin-bottom: 2rem; }
-    .hero-content h2 { font-size: 3.5rem; }
+    .hero-content h2 { font-size: 3rem; } /* Adjusted for better fit */
     .hero-section { height: 70vh; }
+    .content-grid { gap: 1.5rem; } /* Slightly reduce gap on larger screens */
 }
 
 @media (max-width: 768px) {
@@ -459,8 +470,9 @@ footer {
     nav ul { margin-top: 1rem; flex-wrap: wrap; justify-content: center; }
     nav ul li { margin: 5px 10px; }
     .site-title { margin-bottom: 1rem; }
-    .content-grid { grid-template-columns: 1fr; }
+    .content-grid { grid-template-columns: 1fr; } /* Single column on smaller screens */
     section { padding: 3rem 0; }
+    .content-card { padding: 1rem; } /* Adjust card padding */
 }
 
 @media (max-width: 480px) {
@@ -469,4 +481,6 @@ footer {
     .cta-button { padding: 10px 20px; font-size: 1rem; }
     .site-title a { font-size: 1.8rem; }
     nav ul li { margin: 5px 8px; font-size: 0.95rem; }
+    .hero-content p { font-size: 1.1rem; }
+    .content-section h2 { font-size: 2rem; margin-bottom: 2rem; }
 }
