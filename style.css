@@ -205,7 +205,7 @@ section:last-of-type { /* Remove border from last section */
     border-bottom: none;
 }
 
-/* Use the defined vars for alternating backgrounds */
+/* Section Backgrounds */
 section:nth-of-type(odd) {
     background-color: var(--section-background-odd);
 }
@@ -283,7 +283,7 @@ section:nth-of-type(even) {
 
 /* Content Sections */
 .content-section {
-    padding: 4rem 0; /* Already defined above, but reinforcing */
+    padding: 4rem 0;
 }
 
 .content-section h2 {
