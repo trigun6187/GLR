@@ -1,0 +1,111 @@
+{
+    "greeting": {
+        "title": "Ghost Legacy Reloaded",
+        "subtitle": "Your Ultimate Hub for Streaming Games, Music, and OBS Mastery.",
+        "callToAction": {
+            "text": "Explore Latest Streams",
+            "url": "#games"
+        },
+        "background_image": "assets/img/hero-bg.png"
+    },
+    "sections": {
+        "games": {
+            "title": "Featured Game Streams",
+            "items": [
+                {
+                    "id": "game1",
+                    "title": "Epic Cyberpunk 2077 Run",
+                    "description": "A deep dive into the neon-drenched streets of Night City, showcasing cutting-edge gameplay and survival.",
+                    "image": "assets/img/game-placeholder1.png",
+                    "url": "#",
+                    "tags": ["RPG", "Cyberpunk", "Open World"]
+                },
+                {
+                    "id": "game2",
+                    "title": "Mastering Elden Ring's Bosses",
+                    "description": "Learn strategies and showcase epic wins against the toughest bosses in the Lands Between.",
+                    "image": "assets/img/game-placeholder2.png",
+                    "url": "#",
+                    "tags": ["Action RPG", "Souls-like", "Challenge"]
+                },
+                {
+                    "id": "game3",
+                    "title": "Indie Gem: Stardew Valley Adventures",
+                    "description": "Exploring the relaxing world of farming and community in this beloved indie title.",
+                    "image": "assets/img/game-placeholder3.png",
+                    "url": "#",
+                    "tags": ["Indie", "Simulation", "Relaxing"]
+                }
+            ]
+        },
+        "music": {
+            "title": "Gaming Soundtracks & Beats",
+            "description": "Curated playlists and discussions on music that fuels your gaming sessions.",
+            "playlists": [
+                {
+                    "id": "playlist1",
+                    "title": "Synthwave & Chill: Retro Gaming Vibes",
+                    "description": "Transport yourself back with nostalgic synthwave tracks.",
+                    "url": "#",
+                    "image": "assets/img/music-placeholder1.png"
+                },
+                {
+                    "id": "playlist2",
+                    "title": "High-Octane OSTs for Competitive Play",
+                    "description": "Get hyped with adrenaline-pumping soundtracks for intense matches.",
+                    "url": "#",
+                    "image": "assets/img/music-placeholder2.png"
+                }
+            ]
+        },
+        "obs": {
+            "title": "OBS & Streaming Mastery",
+            "description": "Tips, tutorials, and guides to enhance your streaming setup.",
+            "guides": [
+                {
+                    "id": "obs-guide1",
+                    "title": "Beginner's OBS Setup Guide: From Zero to Stream",
+                    "description": "A step-by-step walkthrough to get your first stream running smoothly.",
+                    "url": "#",
+                    "image": "assets/img/obs-placeholder1.png"
+                },
+                {
+                    "id": "obs-guide2",
+                    "title": "Advanced Scene Transitions & Overlays",
+                    "description": "Learn to create dynamic and professional-looking scene transitions and overlays.",
+                    "url": "#",
+                    "image": "assets/img/obs-placeholder2.png"
+                }
+            ]
+        },
+        "blog": {
+            "title": "Latest Blog Posts",
+            "posts": [
+                {
+                    "id": "blog1",
+                    "title": "The Evolving Landscape of Game Streaming in 2024",
+                    "excerpt": "An exploration into upcoming trends, new platforms, and creator economy shifts in game streaming.",
+                    "date": "2024-03-20",
+                    "author": "Admin",
+                    "url": "#"
+                },
+                {
+                    "id": "blog2",
+                    "title": "Sound Design: The Unsung Hero of Immersive Gaming",
+                    "excerpt": "How audio shapes the gaming experience, from subtle cues to epic soundtracks.",
+                    "date": "2024-03-15",
+                    "author": "SoundSurge",
+                    "url": "#"
+                },
+                {
+                    "id": "blog3",
+                    "title": "Optimizing Your PC for High-Quality OBS Streaming",
+                    "excerpt": "Tips and tricks to ensure smooth, lag-free streaming even with demanding games.",
+                    "date": "2024-03-10",
+                    "author": "TechGuru",
+                    "url": "#"
+                }
+            ]
+        }
+    }
+}

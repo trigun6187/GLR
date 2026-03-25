@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Legacy Reloaded</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Futuristic font - example: 'Orbitron' from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="site-title">
+                <a href="#">Ghost Legacy Reloaded</a>
+                <span id="version-number"></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#games">Games</a></li>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#obs">OBS</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#changelog">Changelog</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container hero-content">
+                <h2>Legacy Reloaded</h2>
+                <p>Your ultimate resource for mastering game streaming, curated music, and OBS.</p>
+                <a href="#games" class="cta-button">Explore Latest Streams</a>
+            </div>
+            <div class="hero-background"></div>
+        </section>
+
+        <section id="games" class="content-section">
+            <div class="container">
+                <h2>Featured Game Streams</h2>
+                <div class="content-grid">
+                    <!-- Game stream cards will be loaded here -->
+                    <div class="content-card">
+                        <img src="assets/img/game-placeholder1.png" alt="Game Stream Placeholder 1">
+                        <h3>Epic Gaming Moment</h3>
+                        <p>A thrilling playthrough of...</p>
+                        <a href="#" class="read-more">Watch/Read More &rarr;</a>
+                    </div>
+                    <div class="content-card">
+                        <img src="assets/img/game-placeholder2.png" alt="Game Stream Placeholder 2">
+                        <h3>Strategy Masterclass</h3>
+                        <p>Deep dive into advanced tactics...</p>
+                        <a href="#" class="read-more">Watch/Read More &rarr;</a>
+                    </div>
+                     <div class="content-card">
+                        <img src="assets/img/game-placeholder3.png" alt="Game Stream Placeholder 3">
+                        <h3>Indie Gem Discovery</h3>
+                        <p>Exploring hidden indie titles...</p>
+                        <a href="#" class="read-more">Watch/Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="music" class="content-section">
+            <div class="container">
+                <h2>Gaming Soundtracks & Beats</h2>
+                <p>Curated playlists and discussions on music that fuels your gaming sessions.</p>
+                <div class="content-grid">
+                    <div class="content-card music-card">
+                        <h4>Epic Boss Fight Anthems</h4>
+                        <p>Powerful tracks for intense moments.</p>
+                        <a href="#">Listen &rarr;</a>
+                    </div>
+                    <div class="content-card music-card">
+                        <h4>Chill Lo-fi Beats for Grinding</h4>
+                        <p>Relaxing tunes for long sessions.</p>
+                        <a href="#">Listen &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="obs" class="content-section">
+            <div class="container">
+                <h2>OBS & Streaming Mastery</h2>
+                <p>Tips, tutorials, and guides to enhance your streaming setup.</p>
+                <div class="content-grid">
+                    <div class="content-card obs-card">
+                        <h4>Beginner's OBS Setup Guide</h4>
+                        <p>Get started with the basics of OBS.</p>
+                        <a href="#">Read Guide &rarr;</a>
+                    </div>
+                    <div class="content-card obs-card">
+                        <h4>Advanced Scene Transitions</h4>
+                        <p>Learn to create dynamic transitions.</p>
+                        <a href="#">Read Guide &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="blog" class="content-section">
+            <div class="container">
+                <h2>Latest Blog Posts</h2>
+                <div id="blog-list">
+                    <!-- Blog posts will be loaded here -->
+                     <article class="blog-post-preview">
+                        <h3>Future of Gaming Streaming</h3>
+                        <p>An exploration into upcoming trends in game streaming technology...</p>
+                        <a href="#">Read More &rarr;</a>
+                    </article>
+                     <article class="blog-post-preview">
+                        <h3>Sound Design for Immersive Games</h3>
+                        <p>How audio shapes the gaming experience...</p>
+                        <a href="#">Read More &rarr;</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <div class="container">
+                <h2>About Ghost Legacy Reloaded</h2>
+                <p>Welcome to Ghost Legacy Reloaded! We're a passionate community dedicated to the convergence of gaming, music, and the art of streaming with OBS. Explore guides, reviews, playlists, and insights to elevate your gaming experience.</p>
+            </div>
+        </section>
+
+        <section id="changelog" class="content-section">
+            <div class="container">
+                <h2>Changelog</h2>
+                <div id="changelog-content">
+                    <!-- Changelog entries will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2024 Ghost Legacy Reloaded. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Discord</a> | <a href="#">Twitter</a> | <a href="#">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
