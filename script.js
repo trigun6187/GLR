@@ -48,10 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const contentData = await response.json();
             renderContent(contentData);
-            renderChangelog(contentData.changelog); // Pass changelog data if available
+            // Only try to render changelog from content.json if it exists
+            if (contentData.changelog) {
+                renderChangelog(contentData.changelog);
+            } else {
+                renderChangelog(); // Fallback to hardcoded entries
+            }
         } catch (error) {
             console.error("Error loading content:", error);
             // Display error message on page if needed
+            // Also, render fallback changelog if content fails to load
+            renderChangelog();
         }
     }
 
@@ -143,17 +150,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Changelog Rendering ---
+    // Modified to use hardcoded entries as fallback if content.json doesn't provide them
     function renderChangelog(entries) {
         const changelogContentDiv = document.getElementById('changelog-content');
         if (!changelogContentDiv) return;
         changelogContentDiv.innerHTML = '';
 
-        if (!entries || entries.length === 0) {
-            changelogContentDiv.innerHTML = "<p>No changelog entries yet.</p>";
-            return;
-        }
+        // Use provided entries, or fallback to hardcoded ones
+        const changelogData = entries && entries.length > 0 ? entries : [
+            {
+                version: "1.1.0",
+                date: "2024-03-27", // Updated date for this change
+                changes: [
+                    "Fixed version number display in header.",
+                    "Ensured changelog is visible and uses fallback data.",
+                    "Improved layout alignment with original site inspiration."
+                ]
+            },
+            {
+                version: "1.0.0",
+                date: "2024-03-26",
+                changes: [
+                    "Initial release of Ghost Legacy Reloaded.",
+                    "Implemented futuristic dark theme, header, navigation, and hero section.",
+                    "Added version number and changelog section.",
+                    "Basic structure for Games, Music, OBS, Blog, About, and Links sections."
+                ]
+            }
+        ];
 
-        entries.forEach(entry => {
+        changelogData.forEach(entry => {
             const entryDiv = document.createElement('div');
             entryDiv.innerHTML = `
                 <h3>v${entry.version} (${entry.date})</h3>
@@ -183,7 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initial Load ---
     loadContent(); // Load main content data first
     loadUsernameRules(); // Load username rules
-    checkPasswordStrength(); // Initialize password strength display if input has value
+    // Initialize password strength display if input has value (though it's empty on load)
+    if (passwordInput && passwordInput.value) checkPasswordStrength();
     if (passwordInput) passwordInput.addEventListener('input', checkPasswordStrength);
 
     // --- Resource Directory (kept for now, might be refactored/removed) ---

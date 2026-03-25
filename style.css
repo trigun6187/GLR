@@ -116,10 +116,11 @@ header {
 .site-title #version-number {
     font-size: 0.8rem;
     font-family: var(--font-main);
-    color: var(--text-dark);
+    color: var(--text-dark); /* Ensure text color is visible */
     text-shadow: none;
     margin-left: 10px;
     vertical-align: middle;
+    display: inline-block; /* Ensures it behaves correctly with text */
 }
 
 nav ul {
@@ -451,6 +452,17 @@ footer {
     color: var(--accent-color);
     text-shadow: var(--shadow-glow);
 }
+
+/* --- Version Number Visibility --- */
+#version-number {
+    display: inline-block; /* Ensures it respects text flow */
+    font-size: 0.8em; /* Slightly smaller */
+    color: var(--text-dark); /* Visible color */
+    margin-left: 10px;
+    vertical-align: middle;
+    opacity: 0.8; /* Subtle appearance */
+}
+
 
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
